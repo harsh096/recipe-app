@@ -1,2 +1,2 @@
 # recipe-app
-Search recipes by any ingridient
+Search recipes by any ingredient
