@@ -17,6 +17,7 @@ function App() {
       const data = await response.json();
       console.log(data.hits);
       setRecipes(data.hits);
+     
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -39,29 +40,35 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className="wrapper">
+        <h3 className="heading">Enter any ingredient</h3>
         <form onSubmit={getSearch} className="search-form" action="">
           <input
             className="search-input"
             type="text"
             value={search}
             onChange={updateSearch}
+            placeholder="banana"
           />
           <button className="search-button" type="submit">
             Search
           </button>
         </form>
       </div>
-      {recipes.map((recipe) => {
-        return (
-          <Recipe
-            title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
-            img={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredientLines}
-          />
-        );
-      })}
+      <div className="recipe-wrapper">
+        {recipes.map((recipe) => {
+          return (
+            <Recipe
+              title={recipe.recipe.label}
+              calories={recipe.recipe.calories}
+              img={recipe.recipe.image}
+              ingredients={recipe.recipe.ingredientLines}
+              url={recipe.recipe.url}
+              weight={recipe.recipe.totalWeight}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
