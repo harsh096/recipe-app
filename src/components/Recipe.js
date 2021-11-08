@@ -8,12 +8,17 @@ const Recipe = ({ title, calories, img, ingredients,url, weight }) => {
   return (
     <div className="recipe-container">
       <h1 className="recipe-title">{title}</h1>
-      <img className="recipe-img" src={img} alt="img" />
-      <div className="calorie-weight-div"> 
+      <img
+        
+        className="recipe-img"
+        src={img}
+        alt="img"
+      />
+      <div className="calorie-weight-div">
         <p>Calories: {roundedOffCalories}</p>
         <p>Weight: {roundedOffWeight} gms</p>
       </div>
-      <p style={{ fontWeight: "500", margin:"0px" }}>Ingredients</p>
+      <p style={{ fontWeight: "500", margin: "0px" }}>Ingredients</p>
 
       <div className="recipe-li">
         {ingredients.map((i) => {
@@ -21,6 +26,7 @@ const Recipe = ({ title, calories, img, ingredients,url, weight }) => {
         })}
       </div>
       <a href={url}>Recipe Website</a>
+      
     </div>
   );
 };
